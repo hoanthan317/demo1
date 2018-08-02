@@ -5,7 +5,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                Test layout
+                Home page
                 <News/>
             </div>
         );
