@@ -4,9 +4,9 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import Home from './components/layouts/Home';
 import About from './components/layouts/About';
 import Layout from './components/layouts/Layout';
-import NewsItemDetail from './components/presentation/NewsItemDetail';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import NewsItemArticle from './components/layouts/NewsItemArticle';
 
 class App extends Component {
   render() {
@@ -16,7 +16,7 @@ class App extends Component {
           <Layout>
             <Route exact path="/" component={Home}/>
             <Route path="/about" component={About} />
-            <Route path="/news/:id" component={NewsItemDetail}/>
+            <Route path="/news/:id" component={NewsItemArticle}/>
           </Layout>
         </BrowserRouter>
       </Provider>

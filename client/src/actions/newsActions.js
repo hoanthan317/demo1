@@ -14,6 +14,19 @@ function newsPushed(news){
     };
 }
 
+function newsItemReceived(news){
+    return {
+        type: actionTypes.NEWS_ITEM_RECEIVED,
+        news: news
+    }
+}
+
+function loadArticle() {
+    return {
+        type: actionTypes.NEWS_LOADING
+    }
+}
+
 export function fetchNews(){
     return dispatch => {
         return fetch(`http://localhost:8080/news`)
@@ -41,10 +54,27 @@ export function addNews(news){
         })
         .then((response) => { 
             response.json().then((data) => {
-                if(data.status === 200 && data.data !== null) dispatch(newsPushed(data.data))
+                if(data.status === 200 && data.data !== {}) dispatch(newsPushed(data.data))
                 else dispatch(newsPushed(false))
             });
         })
         .catch( (e) => {console.log(e); dispatch(newsPushed(false)) } );
+    }
+}
+
+export function fetchItem(id){
+    return dispatch => {
+        return fetch(`http://localhost:8080/news/${id}`).then((response) => {
+            response.json().then((data) => {
+                if(data.status === 200 && data.data !== {}) dispatch(newsItemReceived(data.data))
+                else dispatch(newsItemReceived(false))
+            })
+        })
+    }
+}
+
+export function loadItem(){
+    return dispatch => {
+        dispatch(loadArticle());
     }
 }

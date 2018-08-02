@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import NewsItemListing from '../presentation/NewsItemListing';
 import { connect } from 'react-redux';
-import { fetchNews, addNews } from '../../actions/actions';
+import { fetchNews, addNews } from '../../actions/newsActions';
 
 class News extends Component {
     componentDidMount(){
@@ -23,7 +23,7 @@ class News extends Component {
                         title: 'Test add news',
                         teaser: 'Mad owl seen tormenting drivers in Morecambe'
                     }));
-                }}>Create Mock News</button>
+                }}>Create Mock Data</button>
                 <ul>
                     { (this.props.error === false) ? (this.props.news !== undefined && this.props.news.length > 0 ? <ul>{newsItems}</ul> : <div>Sorry we have no news</div>) : <div>Sorry, An error has occured</div> }
                 </ul>
