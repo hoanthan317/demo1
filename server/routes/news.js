@@ -6,6 +6,10 @@ router.get('/', function(req, res, next) {
   newsController.getNews(req,res);
 });
 
+router.get('/:id', function(req,res,next){
+  newsController.getById(req,res);
+});
+
 router.post('/post', function(req,res,next){
   newsController.add(req,res);
 });
