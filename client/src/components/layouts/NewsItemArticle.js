@@ -4,8 +4,10 @@ import { fetchItem, loadItem } from '../../actions/newsActions';
 import { connect } from 'react-redux';
 
 class NewsItemArticle extends Component {
-    componentDidMount(){
+    componentWillMount() {
         this.props.dispatch(loadItem());
+    }
+    componentDidMount(){
         setTimeout(() => {
             this.props.dispatch(fetchItem(this.props.match.params.id));
         }, 1000);
