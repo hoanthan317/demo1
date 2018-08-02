@@ -7,7 +7,7 @@ class NewsItemListing extends Component {
         return (
             <div>
                 <div>
-                    <div><Link to={`/news/${this.props.data.id}`}><b>{this.props.data.title}</b></Link></div>
+                    <div><Link to={`/news/${this.props.data.id}`}><b>{this.props.data.title} - Id: {this.props.data.id}</b></Link></div>
                     <div>{this.props.data.teaser}</div>
                 </div>
             </div>
@@ -17,7 +17,7 @@ class NewsItemListing extends Component {
 
 NewsItemListing.propTypes = {
     data: PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
         teaser: PropTypes.string.isRequired
     })

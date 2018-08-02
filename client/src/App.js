@@ -6,7 +6,7 @@ import About from './components/layouts/About';
 import Layout from './components/layouts/Layout';
 import NewsItemDetail from './components/presentation/NewsItemDetail';
 import { Provider } from 'react-redux';
-import store from './stores/store';
+import store from './store/store';
 
 class App extends Component {
   render() {
